@@ -16,10 +16,14 @@ func init () {
 	}
 }
 
-func FS() gofs.FS {
-	return fs
 func OvertRoot() string {
 	return cfg.BasePathRoot()
 }
 
+func Open(name string) (gofs.File, error) {
+	if nil == fs {
+		return nil, errNilFileSystem
+	}
+
+	return fs.Open(name)
 }
