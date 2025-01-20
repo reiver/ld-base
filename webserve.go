@@ -14,6 +14,7 @@ func webserve() {
 
 	var tcpaddr string = cfg.WebServerTCPAddress()
 	log.Informf("serving HTTP on TCP address: %q", tcpaddr)
+	log.Informf("NOTE that TCP port of TCP address can be overridden using %q environment variable", cfg.EnvVarNamePort)
 
 	err := http.ListenAndServe(tcpaddr, &httpsrv.Mux)
 	if nil != err {

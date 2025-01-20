@@ -4,6 +4,8 @@ import (
 	"os"
 )
 
+const EnvVarNamePort string = "PORT"
+
 var TcpPort string = tcpPort()
 
 // tcpPort returns the TCP-port that the HTTP server should use.
@@ -12,7 +14,7 @@ var TcpPort string = tcpPort()
 //
 // But that can be overridden by a value set in the "PORT" environment variable.
 func tcpPort() string {
-	tcpPort := os.Getenv("PORT")
+	tcpPort := os.Getenv(EnvVarNamePort)
 	if "" == tcpPort {
 		tcpPort = "8080"
 	}
