@@ -5,5 +5,6 @@ import (
 )
 
 const (
+	EnvVarNameBase = env.EnvVarNameBase
 	EnvVarNamePort = env.EnvVarNamePort
 )
