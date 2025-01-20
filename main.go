@@ -10,6 +10,6 @@ func main() {
 	log.Inform("ld-base ⚡")
 	blur()
 
-	//log.Inform("Here we go…")
-	//webserve()
+	log.Inform("Here we go…")
+	webserve()
 }
