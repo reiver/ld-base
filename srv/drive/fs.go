@@ -10,7 +10,7 @@ import (
 var fs gofs.FS
 
 func init () {
-	fs = os.DirFS(Path())
+	fs = os.DirFS(OvertRoot())
 	if nil == fs {
 		panic("nil fs.FS for root of base")
 	}
@@ -18,8 +18,8 @@ func init () {
 
 func FS() gofs.FS {
 	return fs
+func OvertRoot() string {
+	return cfg.BasePathRoot()
 }
 
-func Path() string {
-	return cfg.BasePathRoot()
 }

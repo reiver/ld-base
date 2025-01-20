@@ -13,7 +13,7 @@ import (
 func webserve() {
 	log := logsrv.Prefix("webserve")
 
-	log.Informf("base root-path at: %q", drivesrv.Path())
+	log.Informf("base root-path at: %q", drivesrv.OvertRoot())
 	log.Informf("NOTE that base root-path can be overridden using %q environment variable", cfg.EnvVarNameBase)
 
 	var tcpaddr string = cfg.WebServerTCPAddress()
