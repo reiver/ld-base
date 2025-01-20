@@ -8,7 +8,7 @@ func main() {
 	log := logsrv.Prefix("main")
 
 	log.Inform("ld-base ⚡")
-	//tell()
+	blur()
 
 	//log.Inform("Here we go…")
 	//webserve()
