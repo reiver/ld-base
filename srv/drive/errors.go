@@ -5,5 +5,7 @@ import (
 )
 
 const (
-	errNilFileSystem = erorr.Error("nil file-system")
+	errEmptyDestination = erorr.Error("empty destination")
+	errNilFileSystem    = erorr.Error("nil file-system")
+	errNilSource        = erorr.Error("nil source")
 )
