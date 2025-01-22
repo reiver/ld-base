@@ -42,6 +42,12 @@ func WriteFrom(dst string, src io.ReadCloser) error {
 			return err
 		}
 		defer func() {
+			err := file.Sync()
+			if nil != err {
+				log.Errorf("problem (deferred) syncing temp-file from %q: %s", dst, err)
+				return
+			}
+
 			err := file.Close()
 			if nil != err && !erorr.Is(err, os.ErrClosed) {
 				log.Errorf("problem (deferred) closing temp-file from %q: %s", dst, err)
@@ -63,6 +69,12 @@ func WriteFrom(dst string, src io.ReadCloser) error {
 	}
 
 	{
+		err := file.Sync()
+		if nil != err {
+			log.Errorf("problem syncing temp-file from %q: %s", dst, err)
+			return
+		}
+
 		err := file.Close()
 		if nil != err {
 			log.Errorf("problem closing temp-file from %q: %s", dst, err)
